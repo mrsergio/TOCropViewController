@@ -223,7 +223,7 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     self.translucencyView.hidden = NO;
     self.translucencyView.userInteractionEnabled = NO;
     self.translucencyView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    [self addSubview:self.translucencyView];
+    //[self addSubview:self.translucencyView];
     
     // The forground container that holds the foreground image view
     self.foregroundContainerView = [[UIView alloc] initWithFrame:(CGRect){0,0,200,200}];
