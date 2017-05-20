@@ -59,6 +59,9 @@ typedef NS_ENUM(NSInteger, TOCropViewCroppingStyle) {
  */
 @property (nullable, nonatomic, weak) id<TOCropViewDelegate> delegate;
 
+/* A blur view that is made visible when the user isn't interacting with the crop view */
+@property (nullable, nonatomic, strong) UIView * translucencyView;
+
 /**
  If false, the user cannot resize the crop box frame using a pan gesture from a corner.
  Default vaue is YES.
