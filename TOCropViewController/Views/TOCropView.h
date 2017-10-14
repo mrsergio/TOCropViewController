@@ -180,6 +180,11 @@ typedef NS_ENUM(NSInteger, TOCropViewCroppingStyle) {
 - (void)resetLayoutToDefaultAnimated:(BOOL)animated;
 
 /**
+ Reset the crop box and zoom scale without animated
+ */
+- (void)resetLayoutWithoutAnimation;
+
+/**
  Changes the aspect ratio of the crop box to match the one specified
  
  @param aspectRatio The aspect ratio (For example 16:9 is 16.0f/9.0f). 'CGSizeZero' will reset it to the image's own ratio

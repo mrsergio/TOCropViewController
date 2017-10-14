@@ -715,6 +715,26 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     });
 }
 
+- (void)resetLayoutWithoutAnimation {
+	// If resetting the crop view includes resetting the aspect ratio,
+	// reset it to zero here. But set the ivar directly since there's no point
+	// in performing the relayout calculations right before a reset.
+	if (self.hasAspectRatio && self.resetAspectRatioEnabled) {
+		_aspectRatio = CGSizeZero;
+	}
+	
+	//If we were in the middle of a reset timer, cancel it as we'll
+	//manually perform a restoration animation here
+	if (self.resetTimer) {
+		[self cancelResetTimer];
+		[self setEditing:NO animated:NO];
+	}
+	
+	[self setSimpleRenderMode:YES animated:NO];
+	[self layoutInitialImage];
+	[self setSimpleRenderMode:NO animated:YES];
+}
+
 - (void)toggleTranslucencyViewVisible:(BOOL)visible
 {
     if (self.dynamicBlurEffect == NO) {
